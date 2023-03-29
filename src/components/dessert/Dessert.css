@@ -1,0 +1,20 @@
+image {
+  display: flex;
+}
+
+.image2 {
+  display: flex;
+}
+
+.badge_back {
+  background-color: #ff7010 !important;
+  border: none;
+}
+
+.down_header {
+  padding-top: 35px !important;
+}
+
+.kuda_image_title {
+  gap: 12px;
+}

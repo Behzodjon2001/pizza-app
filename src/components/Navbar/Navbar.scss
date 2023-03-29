@@ -1,0 +1,35 @@
+.header {
+  background: #ffffff;
+  .container {
+    .card1 {
+      gap: 40px !important;
+      .moskva {
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 4px !important;
+      }
+      h5 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #191919;
+      }
+    }
+    .card2 {
+      gap: 40px !important;
+      .voytivaccount {
+        gap: 6px;
+      }
+      h5 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #191919;
+      }
+    }
+  }
+}
