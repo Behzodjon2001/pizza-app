@@ -16,8 +16,11 @@ export default class Homework extends Component {
   render() {
     return (
       <>
-        <Navbar />
-        <Dessert />
+        <div className="overflow-hidden">
+          <Navbar />
+
+          <Dessert />
+        </div>
       </>
     );
   }

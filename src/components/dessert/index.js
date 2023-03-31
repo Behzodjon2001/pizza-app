@@ -82,6 +82,11 @@ export default class Dessert extends Component {
       }
       changeCard(newCardProducts);
     };
+    const check = (name, category) => {
+      if (name === category) {
+        return name;
+      }
+    };
     return (
       <>
         <hr className="hr_backcolor" />
@@ -174,7 +179,11 @@ export default class Dessert extends Component {
               {" "}
               {products.map((el) => (
                 <div key={el.id} className="col-lg-3 col-md-4 col-sm-6 col-12 ">
-                  <ItemCard {...el} getProduct={getProduct} />{" "}
+                  <ItemCard
+                    check={check(el.category, this.props.name)}
+                    {...el}
+                    getProduct={getProduct}
+                  />{" "}
                 </div>
               ))}{" "}
             </div>{" "}
