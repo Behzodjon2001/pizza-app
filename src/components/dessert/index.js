@@ -109,14 +109,168 @@ export default class Dessert extends Component {
       hamburger.addEventListener("click", burgerMenu);
     };
     return (
-      <div className="header_stiky ">
-        <hr className="hr_backcolor" />
-        <ToastContainer autoClose={1000} />{" "}
-        <div className=" d-flex justify-content-between  down_header">
-          <div className="card1 kuda_image_title  d-flex justify-content-between align-items-center">
-            <img src={kuda_pizza} alt="" />
-            <h5 className="kuda_pizza_w"> Куда пицца </h5>{" "}
+      <div className="position-relative">
+        <div className="header_stiky ">
+          <hr className="hr_backcolor" />
+          <ToastContainer autoClose={1000} />{" "}
+          <div className=" d-flex justify-content-between  down_header">
+            <div className="card1 kuda_image_title  d-flex justify-content-between align-items-center">
+              <img src={kuda_pizza} alt="" />
+              <h5 className="kuda_pizza_w"> Куда пицца </h5>{" "}
+            </div>{" "}
+            <Button className="mb-3 mt-3 badge_back" onClick={handleShow}>
+              <img src={shoppingBag} alt="" />{" "}
+              <Badge bg="">
+                {" "}
+                {this.state.cardProducts.reduce((acc, el) => {
+                  return acc + el.price * el.quantity;
+                }, 0)}{" "}
+                <span> ₽ </span>{" "}
+              </Badge>{" "}
+              <span className="visually-hidden">
+                {" "}
+                <img src={shoppingBag} alt="" />{" "}
+              </span>{" "}
+            </Button>{" "}
+            <div className="menu_header">
+              <ul class="menu">
+                <li>
+                  <div className=" d-flex justify-content-center align-items-center g-2">
+                    <img src={account} alt="" />
+                    <h5 className="voytivaccount2"> Войти в аккаунт </h5>{" "}
+                  </div>{" "}
+                </li>{" "}
+                <li>
+                  <p class="burger_menu"> Biznes uchun </p>{" "}
+                </li>{" "}
+                <li>
+                  <p class="burger_menu"> Ko 'proq </p>{" "}
+                </li>{" "}
+              </ul>{" "}
+              <button onClick={menuClick} class="hamburger">
+                <i class="menu_icon material-icons"> menu </i>{" "}
+                <i class="x_closed material-icons"> close </i>{" "}
+              </button>{" "}
+            </div>{" "}
           </div>{" "}
+          <div className="cards_all pt-3  overflow-hidden">
+            <div className="container">
+              {" "}
+              <div className="d-flex justify-content-center align-items-center">
+                <div className="out_categories_card">
+                  <span className="span_categories_card">
+                    <img src={fire} alt="aa" />
+                    <br /> <br />
+                    <h5> Акции </h5>{" "}
+                  </span>{" "}
+                </div>{" "}
+                <div className="d-flex justify-content-center align-items-center display_flex_categories">
+                  {" "}
+                  {categories.map((el, index) => (
+                    <CategoriesCard key={index} {...el} />
+                  ))}{" "}
+                </div>{" "}
+              </div>{" "}
+              <div className="ad_div_proveriy">
+                <div className="card1ad d-flex justify-content-between p-3">
+                  <span className="ad_span">
+                    <img src={ad_image1} alt="" />{" "}
+                    <p className="srednee_pizza">
+                      {" "}
+                      3 средние пиццы от 999 рублей{" "}
+                    </p>{" "}
+                  </span>{" "}
+                  <span className="ad_span">
+                    {" "}
+                    <img src={ad_image2} alt="dd" />
+                    <p className="srednee_pizza">
+                      {" "}
+                      Кэшбек 10 % на самовывоз(доставка){" "}
+                    </p>{" "}
+                  </span>{" "}
+                  <span className="ad_span">
+                    {" "}
+                    <img src={ad_image1} alt="" />{" "}
+                    <p className="srednee_pizza">
+                      {" "}
+                      3 средние пиццы от 999 рублей{" "}
+                    </p>{" "}
+                  </span>{" "}
+                  <span className="ad_span">
+                    {" "}
+                    <img src={ad_image2} alt="" />
+                    <p className="srednee_pizza">
+                      Кэшбек 10 % на самовывоз(доставка){" "}
+                    </p>{" "}
+                  </span>{" "}
+                </div>{" "}
+              </div>{" "}
+              <div className="d-flex justify-content-center align-items-center lacation_checked">
+                <div className="cardadress">
+                  <h4 className="proveritadress"> Проверить адрес доставки </h4>{" "}
+                </div>{" "}
+                <div className="cardadress">
+                  <label htmlFor="text"> </label>{" "}
+                  <input type="text" name="text" placeholder="Адрес" />
+                </div>{" "}
+                <div className="cardadress">
+                  <button className="pruverit_button"> Проверить </button>{" "}
+                </div>{" "}
+              </div>{" "}
+              <div className="row p-3 g-3">
+                {" "}
+                {products.map((el) => (
+                  <div
+                    key={el.id}
+                    className="col-lg-3 col-md-4 col-sm-6 col-12 "
+                  >
+                    <ItemCard
+                      check={check(el.category, this.props.name)}
+                      {...el}
+                      getProduct={getProduct}
+                    />{" "}
+                  </div>
+                ))}{" "}
+              </div>{" "}
+              <Offcanvas
+                className="offcanfaas"
+                placement="end"
+                show={this.state.show}
+                onHide={handleClose}
+              >
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title> Selected products </Offcanvas.Title>{" "}
+                </Offcanvas.Header>{" "}
+                <Offcanvas.Body className="row p-3 g-3">
+                  {" "}
+                  {this.state.cardProducts.length !== 0 ? (
+                    this.state.cardProducts.map((el) => (
+                      <div
+                        key={el.id}
+                        className="col-lg-3 col-md-4 col-sm-6 col-12"
+                      >
+                        <CardCard
+                          {...el}
+                          decrease={decrease}
+                          increase={increase}
+                        />{" "}
+                      </div>
+                    ))
+                  ) : (
+                    <Alert variant="warning"> Free Card </Alert>
+                  )}{" "}
+                  <Alert variant="success">
+                    Total price{" "}
+                    {this.state.cardProducts.reduce((acc, el) => {
+                      return acc + el.price * el.quantity;
+                    }, 0)}{" "}
+                  </Alert>{" "}
+                </Offcanvas.Body>{" "}
+              </Offcanvas>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
+        <div className="card_bottom">
           <Button className="mb-3 mt-3 badge_back" onClick={handleShow}>
             <img src={shoppingBag} alt="" />{" "}
             <Badge bg="">
@@ -131,139 +285,6 @@ export default class Dessert extends Component {
               <img src={shoppingBag} alt="" />{" "}
             </span>{" "}
           </Button>{" "}
-          <div className="menu_header">
-            <ul class="menu">
-              <li>
-                <div className=" d-flex justify-content-center align-items-center g-2">
-                  <img src={account} alt="" />
-                  <h5 className="voytivaccount2"> Войти в аккаунт </h5>{" "}
-                </div>{" "}
-              </li>{" "}
-              <li>
-                <p class="burger_menu"> Biznes uchun </p>{" "}
-              </li>{" "}
-              <li>
-                <p class="burger_menu"> Ko 'proq </p>{" "}
-              </li>{" "}
-            </ul>{" "}
-            <button onClick={menuClick} class="hamburger">
-              <i class="menu_icon material-icons"> menu </i>{" "}
-              <i class="x_closed material-icons"> close </i>{" "}
-            </button>{" "}
-          </div>{" "}
-        </div>{" "}
-        <div className="cards_all pt-3  overflow-hidden">
-          <div className="container">
-            {" "}
-            <div className="d-flex justify-content-center align-items-center">
-              <div className="out_categories_card">
-                <span className="span_categories_card">
-                  <img src={fire} alt="aa" />
-                  <br /> <br />
-                  <h5> Акции </h5>{" "}
-                </span>{" "}
-              </div>{" "}
-              <div className="d-flex justify-content-center align-items-center display_flex_categories">
-                {" "}
-                {categories.map((el, index) => (
-                  <CategoriesCard key={index} {...el} />
-                ))}{" "}
-              </div>{" "}
-            </div>{" "}
-            <div className="ad_div_proveriy">
-              <div className="card1ad d-flex justify-content-between p-3">
-                <span className="ad_span">
-                  <img src={ad_image1} alt="" />{" "}
-                  <p className="srednee_pizza">
-                    {" "}
-                    3 средние пиццы от 999 рублей{" "}
-                  </p>{" "}
-                </span>{" "}
-                <span className="ad_span">
-                  {" "}
-                  <img src={ad_image2} alt="dd" />
-                  <p className="srednee_pizza">
-                    {" "}
-                    Кэшбек 10 % на самовывоз(доставка){" "}
-                  </p>{" "}
-                </span>{" "}
-                <span className="ad_span">
-                  {" "}
-                  <img src={ad_image1} alt="" />{" "}
-                  <p className="srednee_pizza">
-                    {" "}
-                    3 средние пиццы от 999 рублей{" "}
-                  </p>{" "}
-                </span>{" "}
-                <span className="ad_span">
-                  {" "}
-                  <img src={ad_image2} alt="" />
-                  <p className="srednee_pizza">
-                    Кэшбек 10 % на самовывоз(доставка){" "}
-                  </p>{" "}
-                </span>{" "}
-              </div>{" "}
-            </div>{" "}
-            <div className="d-flex justify-content-center align-items-center lacation_checked">
-              <div className="cardadress">
-                <h4 className="proveritadress"> Проверить адрес доставки </h4>{" "}
-              </div>{" "}
-              <div className="cardadress">
-                <label htmlFor="text"> </label>{" "}
-                <input type="text" name="text" placeholder="Адрес" />
-              </div>{" "}
-              <div className="cardadress">
-                <button className="pruverit_button"> Проверить </button>{" "}
-              </div>{" "}
-            </div>{" "}
-            <div className="row p-3 g-3">
-              {" "}
-              {products.map((el) => (
-                <div key={el.id} className="col-lg-3 col-md-4 col-sm-6 col-12 ">
-                  <ItemCard
-                    check={check(el.category, this.props.name)}
-                    {...el}
-                    getProduct={getProduct}
-                  />{" "}
-                </div>
-              ))}{" "}
-            </div>{" "}
-            <Offcanvas
-              className="offcanfaas"
-              placement="end"
-              show={this.state.show}
-              onHide={handleClose}
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title> Selected products </Offcanvas.Title>{" "}
-              </Offcanvas.Header>{" "}
-              <Offcanvas.Body className="row p-3 g-3">
-                {" "}
-                {this.state.cardProducts.length !== 0 ? (
-                  this.state.cardProducts.map((el) => (
-                    <div
-                      key={el.id}
-                      className="col-lg-3 col-md-4 col-sm-6 col-12"
-                    >
-                      <CardCard
-                        {...el}
-                        decrease={decrease}
-                        increase={increase}
-                      />{" "}
-                    </div>
-                  ))
-                ) : (
-                  <Alert variant="warning"> Free Card </Alert>
-                )}{" "}
-                <Alert variant="success">
-                  Total price{" "}
-                  {this.state.cardProducts.reduce((acc, el) => {
-                    return acc + el.price * el.quantity;
-                  }, 0)}{" "}
-                </Alert>{" "}
-              </Offcanvas.Body>{" "}
-            </Offcanvas>{" "}
-          </div>{" "}
         </div>{" "}
       </div>
     );
