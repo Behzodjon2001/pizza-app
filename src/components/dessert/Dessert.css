@@ -13,8 +13,112 @@ image {
 
 .down_header {
   padding-top: 35px !important;
+  margin-bottom: 30px !important;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 0 114px !important;
+  z-index: 1;
 }
 
 .kuda_image_title {
   gap: 12px;
+}
+
+.hr_backcolor {
+  background: #e5e5e5 !important;
+}
+
+.kuda_pizza_w {
+  /* width: 140px !important; */
+}
+
+.display_flex_categories {
+  justify-content: center;
+}
+
+.cards_all {
+  background: #e5e5e5;
+}
+
+.ad_span {
+  /* background-image: url(); */
+  width: 300px !important;
+  height: 343px !important;
+}
+
+.imageadd {
+  background-color: blue;
+  border-radius: 50% !important;
+}
+
+.srednee_pizza {
+  margin-top: -100px;
+  width: 240px !important;
+  padding: 20px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  /* or 140% */
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.cardadress input {
+  width: 783px !important;
+  height: 48px !important;
+  background: #ffffff;
+  /* Line gray */
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 0 20px;
+}
+
+.proveritadress {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+  display: flex;
+  align-items: center;
+  /* Black */
+  color: #191919;
+}
+
+.lacation_checked {
+  padding: 0 40px !important;
+  gap: 20px;
+  background-color: white;
+  margin: 0 20px;
+  height: 80px;
+}
+
+.pruverit_button {
+  background: #ff7010;
+  border-radius: 6px;
+  padding: 13px 32px;
+  border: none;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 138% */
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.offcanfaas {
+  width: 100% !important;
+}
+
+.offcanvas_flex {
+  flex-wrap: nowrap !important;
 }

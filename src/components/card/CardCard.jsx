@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./CardCad.css";
 export default class CardCard extends Component {
   render() {
     let {
@@ -14,12 +14,12 @@ export default class CardCard extends Component {
       increase,
     } = this.props;
     return (
-      <div className="card mb-3">
-        <div className="row g-0">
-          <div className="col-md-4">
+      <div className="card cardcard mb-3">
+        <div className="container">
+          <div className="card-img-top">
             <img src={image} className="img-fluid rounded-start" alt="..." />
           </div>
-          <div className="col-md-8">
+          <div className="">
             <div className="card-body">
               <h5 className="card-title">{name}</h5>
               <p className="card-text">{description}</p>

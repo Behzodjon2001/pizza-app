@@ -1,0 +1,14 @@
+.back_card_main {
+  background-color: #ff7010 !important;
+  padding: 13px 32px !important;
+  border: none !important;
+}
+
+.back_card_main:hover {
+  background-color: #ac4704 !important;
+}
+
+.card123 {
+  width: 300px;
+  height: 480px;
+}

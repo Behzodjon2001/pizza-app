@@ -5,8 +5,9 @@ import account from "../../assets/images/Account.svg";
 export default class Navbar extends Component {
   render() {
     return (
+      
       <div className="header">
-        <div className="container px-3 d-flex justify-content-between align-items-center">
+        <div className="container navbar navbar_padding px-3 d-flex justify-content-between align-items-center">
           <div className="card1 d-flex justify-content-center align-items-center">
             <div className="moskva d-flex justify-content-center align-items-center">
               <img src={location} alt="lokation" />
