@@ -5,7 +5,6 @@ import account from "../../assets/images/Account.svg";
 export default class Navbar extends Component {
   render() {
     return (
-      
       <div className="header">
         <div className="container navbar navbar_padding px-3 d-flex justify-content-between align-items-center">
           <div className="card1 d-flex justify-content-center align-items-center">
@@ -13,10 +12,10 @@ export default class Navbar extends Component {
               <img src={location} alt="lokation" />
               <h5> Москва </h5>{" "}
             </div>{" "}
-            <div>
+            <div className="proverit_adress_header">
               <h5> Проверить адрес </h5>{" "}
             </div>{" "}
-            <div className="">
+            <div className="oclock_header">
               <h5> Среднее время доставки *: 00: 24: 19 </h5>{" "}
             </div>{" "}
             <div> </div>{" "}

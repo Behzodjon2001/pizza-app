@@ -11,15 +11,23 @@ image {
   border: none;
 }
 
+.menu_header {
+  display: none !important;
+}
+
+.header_stiky {
+  position: relative !important;
+}
+
 .down_header {
   padding-top: 35px !important;
   margin-bottom: 30px !important;
-  position: sticky;
-  top: 0;
+  position: sticky !important;
+  top: 0px !important;
   background-color: #fff;
   width: 100%;
   padding: 0 114px !important;
-  z-index: 1;
+  z-index: 99 !important;
 }
 
 .kuda_image_title {
@@ -121,4 +129,106 @@ image {
 
 .offcanvas_flex {
   flex-wrap: nowrap !important;
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .menu_header {
+    display: block !important;
+  }
+  /* .menu_header:hover  */
+  .down_header {
+    justify-content: center !important;
+    padding: 10px 20px !important;
+    margin: 0 !important;
+    /* gap: 20px !important; */
+  }
+  .badge_back {
+    display: none !important;
+  }
+}
+
+.burger_menu {
+  display: block;
+  margin: 30px 60px;
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+.burger_menu:hover {
+  color: rgb(10, 214, 10);
+}
+
+.hamburger {
+  padding: 4px;
+  border: black solid 1px;
+  background: white;
+  cursor: pointer;
+}
+
+.x_closed {
+  display: none;
+}
+
+.menu {
+  overflow: hidden !important;
+  margin: 0 auto;
+  width: 1000px;
+  height: 500px;
+  position: fixed;
+  transform: translateX(100px);
+  transition: transform 0.3s;
+  background: white;
+  list-style: none;
+  margin-top: 50px;
+  padding-top: 65px;
+}
+
+.show_menu {
+  transform: translate(-460px);
+}
+
+.voytivaccount2 {
+  margin-left: -800px !important;
+}
+
+@media screen and (min-width: 341px) and (max-width: 454px) {
+  .menu {
+    overflow: hidden !important;
+    margin: 0 auto;
+    width: 1000px;
+    height: 500px;
+    position: fixed;
+    transform: translateX(100px);
+    transition: transform 0.3s;
+    background: white;
+    list-style: none;
+    margin-top: 50px;
+    padding-top: 65px;
+  }
+  .show_menu {
+    transform: translate(-360px);
+  }
+}
+
+@media screen and (min-width: 30px) and (max-width: 341px) {
+  .menu {
+    overflow: hidden !important;
+    margin: 0 auto;
+    width: 1000px;
+    height: 500px;
+    position: fixed;
+    transform: translateX(100px);
+    transition: transform 0.3s;
+    background: #fff !important;
+    list-style: none;
+    margin-top: 50px;
+    padding-top: 65px;
+  }
+  .show_menu {
+    transform: translate(-260px);
+  }
+  .voytivaccount2 {
+    margin-left: -600px !important;
+  }
 }

@@ -14,6 +14,7 @@ import { categories } from "../../data/categories";
 import fire from "../../assets/images/Fire.svg";
 import ad_image1 from "../../assets/images/ad_image1.png";
 import ad_image2 from "../../assets/images/ad_image3.png";
+import account from "../../assets/images/Account.svg";
 
 export default class Dessert extends Component {
   constructor(props) {
@@ -87,12 +88,32 @@ export default class Dessert extends Component {
         return name;
       }
     };
+    const menuClick = () => {
+      const menu = document.querySelector(".menu");
+      const hamburger = document.querySelector(".hamburger");
+      const x_closed = document.querySelector(".x_closed");
+      const menu_icon = document.querySelector(".menu_icon");
+
+      function burgerMenu() {
+        if (menu.classList.contains("show_menu")) {
+          menu.classList.remove("show_menu");
+          x_closed.style.display = "none";
+          menu_icon.style.display = "block";
+        } else {
+          menu.classList.add("show_menu");
+          x_closed.style.display = "block";
+          menu_icon.style.display = "none";
+        }
+      }
+
+      hamburger.addEventListener("click", burgerMenu);
+    };
     return (
-      <>
+      <div className="header_stiky ">
         <hr className="hr_backcolor" />
         <ToastContainer autoClose={1000} />{" "}
-        <div className=" d-flex justify-content-between 3 down_header ">
-          <div className="card1 kuda_image_title d-flex justify-content-between align-items-center">
+        <div className=" d-flex justify-content-between  down_header">
+          <div className="card1 kuda_image_title  d-flex justify-content-between align-items-center">
             <img src={kuda_pizza} alt="" />
             <h5 className="kuda_pizza_w"> Куда пицца </h5>{" "}
           </div>{" "}
@@ -110,8 +131,28 @@ export default class Dessert extends Component {
               <img src={shoppingBag} alt="" />{" "}
             </span>{" "}
           </Button>{" "}
+          <div className="menu_header">
+            <ul class="menu">
+              <li>
+                <div className=" d-flex justify-content-center align-items-center g-2">
+                  <img src={account} alt="" />
+                  <h5 className="voytivaccount2"> Войти в аккаунт </h5>{" "}
+                </div>{" "}
+              </li>{" "}
+              <li>
+                <p class="burger_menu"> Biznes uchun </p>{" "}
+              </li>{" "}
+              <li>
+                <p class="burger_menu"> Ko 'proq </p>{" "}
+              </li>{" "}
+            </ul>{" "}
+            <button onClick={menuClick} class="hamburger">
+              <i class="menu_icon material-icons"> menu </i>{" "}
+              <i class="x_closed material-icons"> close </i>{" "}
+            </button>{" "}
+          </div>{" "}
         </div>{" "}
-        <div className="cards_all pt-3">
+        <div className="cards_all pt-3  overflow-hidden">
           <div className="container">
             {" "}
             <div className="d-flex justify-content-center align-items-center">
@@ -224,7 +265,7 @@ export default class Dessert extends Component {
             </Offcanvas>{" "}
           </div>{" "}
         </div>{" "}
-      </>
+      </div>
     );
   }
 }

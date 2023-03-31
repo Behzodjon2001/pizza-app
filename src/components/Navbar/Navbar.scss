@@ -36,3 +36,46 @@
     padding: 11px !important;
   }
 }
+
+@media screen and (min-width: 0) and (max-width: 391px) {
+  .header {
+    .container {
+      align-items: center;
+      justify-content: center;
+      .card1 {
+        gap: 12px !important;
+        .moskva {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
+          /* identical to box height, or 133% */
+          display: flex;
+          align-items: center;
+          /* Black */
+          color: #191919;
+        }
+        .proverit_adress_header {
+          display: none !important;
+        }
+        .oclock_header {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
+          /* identical to box height, or 133% */
+          display: flex;
+          align-items: center;
+          text-align: right;
+          /* Black */
+          color: #191919;
+        }
+      }
+      .card2 {
+        display: none !important;
+      }
+    }
+  }
+}
